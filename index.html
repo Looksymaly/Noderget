@@ -19,6 +19,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            overflow: hidden;
         }
 
         h1 {
@@ -26,6 +27,8 @@
             font-weight: 900;
             color: #f9a825;
             margin-bottom: 30px;
+            text-shadow: 0 0 10px rgba(249, 168, 37, 0.8);
+            animation: fadeIn 2s ease-out;
         }
 
         #loadstring {
@@ -33,6 +36,7 @@
             font-weight: 700;
             margin-top: 20px;
             color: #00bcd4;
+            animation: fadeIn 2s ease-out 1s;
         }
 
         #loadstringCode {
@@ -46,6 +50,8 @@
             word-wrap: break-word;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeInCode 2s ease-out 2s forwards;
         }
 
         #loadstringCode:hover {
@@ -62,12 +68,13 @@
             border-radius: 5px;
             background-color: #f9a825;
             color: white;
-            transition: background-color 0.3s, transform 0.3s;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
         }
 
         button:hover {
             background-color: #c17900;
             transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(249, 168, 37, 0.6);
         }
 
         .container {
@@ -93,6 +100,28 @@
                 padding: 10px 20px;
             }
         }
+
+        /* Animations */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInCode {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -103,7 +132,7 @@
         <div id="loadstring">Copy the loadstring below</div>
         
         <div id="loadstringCode">
-            	loadstring(game:HttpGet('https://raw.githubusercontent.com/Looksymaly/NoderV1/refs/heads/main/NoderV1'))()
+            loadstring(game:HttpGet('https://raw.githubusercontent.com/Looksymaly/NoderV1/refs/heads/main/NoderV1'))()
         </div>
 
         <div class="button-container">
