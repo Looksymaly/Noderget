@@ -3,34 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loadstring Display</title>
+    <title>Noder Loadstring</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap');
-        
         body {
-            background-color: black;
+            background-color: rgb(10, 10, 10);
             color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
             font-family: 'Montserrat', sans-serif;
             text-align: center;
             padding: 20px;
         }
 
+        button {
+            font-size: 16px;
+            font-weight: 900;
+            margin: 10px;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            background-color: rgb(30, 30, 30);
+            color: white;
+        }
+
+        button:hover {
+            background-color: gray;
+        }
+
         div {
-            font-size: 20px; /* Larger size for emphasis */
-            font-weight: 900; /* Extra bold */
-            max-width: 80%;
+            font-size: 20px;
+            font-weight: 900;
+            margin-top: 20px;
+        }
+
+        #loadstringCode {
+            font-size: 18px;
+            background-color: #333;
+            padding: 10px;
+            margin: 20px auto;
+            width: 80%;
+            border-radius: 5px;
+            white-space: pre-wrap;
             word-wrap: break-word;
         }
     </style>
 </head>
 <body>
-    <div>
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Looksymaly/Loadstring-for-noder/refs/heads/main/myloadstring.lua"))()
-    </div>
+    <div id="loadstring">Noder Loadstring</div>
+    <div id="loadstringCode">loadstring(game:HttpGet("https://raw.githubusercontent.com/Looksymaly/Loadstring-for-noder/refs/heads/main/myloadstring.lua"))()</div>
+    <button onclick="copyLoadstring()">Copy</button>
+
+    <script>
+        function copyLoadstring() {
+            const text = document.getElementById("loadstringCode").innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                alert("Loadstring copied to clipboard!");
+            }).catch(err => {
+                console.error("Error copying text: ", err);
+            });
+        }
+    </script>
 </body>
 </html>
