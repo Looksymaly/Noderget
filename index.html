@@ -5,52 +5,111 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Noder Loadstring</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap');
+
         body {
-            background-color: rgb(10, 10, 10);
+            background-color: #121212;
             color: white;
             font-family: 'Montserrat', sans-serif;
             text-align: center;
-            padding: 20px;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
 
-        button {
-            font-size: 16px;
+        h1 {
+            font-size: 36px;
             font-weight: 900;
-            margin: 10px;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            background-color: rgb(30, 30, 30);
-            color: white;
+            color: #f9a825;
+            margin-bottom: 30px;
         }
 
-        button:hover {
-            background-color: gray;
-        }
-
-        div {
-            font-size: 20px;
-            font-weight: 900;
+        #loadstring {
+            font-size: 24px;
+            font-weight: 700;
             margin-top: 20px;
+            color: #00bcd4;
         }
 
         #loadstringCode {
             font-size: 18px;
             background-color: #333;
-            padding: 10px;
+            padding: 15px;
             margin: 20px auto;
             width: 80%;
-            border-radius: 5px;
+            border-radius: 10px;
             white-space: pre-wrap;
             word-wrap: break-word;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        #loadstringCode:hover {
+            background-color: #444;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        button {
+            font-size: 18px;
+            font-weight: 900;
+            padding: 12px 25px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            background-color: #f9a825;
+            color: white;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background-color: #c17900;
+            transform: scale(1.05);
+        }
+
+        .container {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .button-container {
+            margin-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            #loadstringCode {
+                width: 90%;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            button {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <div id="loadstring">Noder Loadstring</div>
-    <div id="loadstringCode">loadstring(game:HttpGet("https://raw.githubusercontent.com/Looksymaly/Loadstring-for-noder/refs/heads/main/myloadstring.lua"))()</div>
-    <button onclick="copyLoadstring()">Copy</button>
+
+    <div class="container">
+        <h1>Noder Loadstring</h1>
+
+        <div id="loadstring">Copy the loadstring below</div>
+        
+        <div id="loadstringCode">
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/Looksymaly/Loadstring-for-noder/refs/heads/main/myloadstring.lua"))()
+        </div>
+
+        <div class="button-container">
+            <button onclick="copyLoadstring()">Copy Loadstring</button>
+        </div>
+    </div>
 
     <script>
         function copyLoadstring() {
@@ -62,5 +121,6 @@
             });
         }
     </script>
+
 </body>
 </html>
